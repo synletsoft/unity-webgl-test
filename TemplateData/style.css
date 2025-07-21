@@ -24,13 +24,7 @@
 }
 
 #synlet-logo {
-    object-fit: contain; 
-    position: absolute;
-    width: 755px !important;
-    height: 605px !important;
-    left: 960px;
-    top: 418px;
-    transform: translate(-50%, -50%);
+    
     z-index: 10;
 }
 
