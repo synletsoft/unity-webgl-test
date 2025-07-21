@@ -22,12 +22,6 @@
 #unity-canvas {
     background: #fff;
 }
-
-#synlet-logo {
-    
-    z-index: 10;
-}
-
 .unity-mobile #unity-canvas {
     width: 100%;
     height: 100%
