@@ -23,6 +23,16 @@
     background: #fff;
 }
 
+#synlet-logo {
+    position: absolute;
+    width: 755px;
+    height: 605px;
+    left: 960px;
+    top: 418px;
+    transform: translate(-50%, -50%);
+    z-index: 10; /* Canvas'ın üstünde görünmesi için */
+}
+
 .unity-mobile #unity-canvas {
     width: 100%;
     height: 100%
