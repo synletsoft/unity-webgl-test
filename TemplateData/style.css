@@ -24,13 +24,14 @@
 }
 
 #synlet-logo {
+    object-fit: contain; 
     position: absolute;
-    width: 755px;
-    height: 605px;
+    width: 755px !important;
+    height: 605px !important;
     left: 960px;
     top: 418px;
     transform: translate(-50%, -50%);
-    z-index: 10; /* Canvas'ın üstünde görünmesi için */
+    z-index: 10;
 }
 
 .unity-mobile #unity-canvas {
