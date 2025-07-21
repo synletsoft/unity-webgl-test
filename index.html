@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="tr">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Unity Web Player | cinema</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
@@ -14,68 +13,50 @@
         width: 100%;
         height: 100%;
         background-color: black;
-        display: none; /* Başlangıçta görünmez */
-        z-index: 9999; /* Diğer öğelerin üstünde */
+        display: none;
+        z-index: 9999;
       }
     </style>
   </head>
   <body>
-    <div id="unity-container" style="width : 100%; height : 100%">
-      <canvas id="unity-canvas" width=auto height=auto tabindex="-1"></canvas>
+    <div id="unity-container">
+      <canvas id="unity-canvas" tabindex="-1"></canvas>
+      
       <div id="unity-loading-bar">
         <div id="meb-logo"></div>
         <div id="unity-progress-bar-empty">
           <div id="unity-progress-bar-full"></div>
         </div>
+        <img id="synlet-logo" src="TemplateData/logo.png" alt="Synlet Logo">
       </div>
-      <img id="synlet-logo" src="TemplateData/logo.png" alt="Synlet Logo"  width="503"
-     height="403"
-     style="display: block; margin: 0 auto; position: relative; z-index: 10;">
     </div>
+
     <div id="black-screen"></div>
+
     <script>
       var canvas = document.querySelector("#unity-canvas");
 
-      // Tam ekran siyah görüntüyü kontrol etmek için fonksiyon
       function showBlackScreen() {
         var blackScreen = document.getElementById("black-screen");
         blackScreen.style.display = "block";
-        setTimeout(function() {
+        setTimeout(function () {
           blackScreen.style.display = "none";
-        }, 2000); // 2 saniye sonra kaybolacak
+        }, 2000);
       }
 
-      // Canvas'a otomatik tıklama fonksiyonu
       function simulateCanvasClick() {
-        console.log("Canvas click simulated");
-
-        var eventInit = {
-          view: window,
-          bubbles: true,
-          cancelable: true,
-          buttons: 1 // Sol fare tuşu
-        };
-
-        var events = ['mousedown', 'mouseup', 'click'];
-        
-        events.forEach(type => {
+        var eventInit = { view: window, bubbles: true, cancelable: true, buttons: 1 };
+        ['mousedown', 'mouseup', 'click'].forEach(type => {
           var event = new MouseEvent(type, eventInit);
           canvas.dispatchEvent(event);
         });
       }
 
-      // Event Listener'ları ekle
-      document.addEventListener('fullscreenchange', function() {
-        console.log("Fullscreen change detected");
-        if (document.fullscreenElement) {
-          simulateCanvasClick();
-        }
+      document.addEventListener('fullscreenchange', () => {
+        if (document.fullscreenElement) simulateCanvasClick();
       });
 
-      window.addEventListener('resize', function() {
-        console.log("Window resize detected");
-        simulateCanvasClick();
-      });
+      window.addEventListener('resize', simulateCanvasClick);
 
       var buildUrl = "Build";
       var loaderUrl = buildUrl + "/cikti.loader.js";
@@ -102,7 +83,7 @@
         canvas.style.height = "100%";
       }
 
-      document.querySelector("#unity-loading-bar").style.display = "block";
+      document.querySelector("#unity-loading-bar").style.display = "flex";
 
       var script = document.createElement("script");
       script.src = loaderUrl;
@@ -111,14 +92,12 @@
           document.querySelector("#unity-progress-bar-full").style.width = (100 * progress) + "%";
         }).then((unityInstance) => {
           document.querySelector("#unity-loading-bar").style.display = "none";
-          showBlackScreen(); // Oyun başlatıldıktan sonra siyah ekranı göster
+          showBlackScreen();
         }).catch((message) => {
           alert(message);
         });
       };
-
       document.body.appendChild(script);
-
     </script>
   </body>
 </html>

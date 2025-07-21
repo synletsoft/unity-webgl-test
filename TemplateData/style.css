@@ -1,105 +1,64 @@
 ﻿body {
-    padding: 0;
-    margin: 0
+  padding: 0;
+  margin: 0;
+  background: #ffffff;
+  font-family: sans-serif;
 }
 
 #unity-container {
-    position: absolute
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
 }
-
-    #unity-container.unity-desktop {
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%)
-    }
-
-    #unity-container.unity-mobile {
-        position: fixed;
-        width: 100%;
-        height: 100%
-    }
 
 #unity-canvas {
-    background: #fff;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  display: block;
 }
+
 .unity-mobile #unity-canvas {
-    width: 100%;
-    height: 100%
-}
-
-#unity-logo {
-    width: 154px;
-    height: 130px;
-    background: url('unity-logo-dark.png') no-repeat center
-}
-
-#meb-logo {
-    width: 300px;
-    height: 300px;
-    background: url('meb-logo.png') no-repeat center
+  width: 100%;
+  height: 100%;
 }
 
 #unity-loading-bar {
-    position: absolute;
-    left: 50%;
-    top: 60%;
-    transform: translate(-50%, -50%);
-    display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+}
+
+#meb-logo {
+  width: 200px;
+  height: 200px;
+  background: url('meb-logo.png') no-repeat center;
+  background-size: contain;
 }
 
 #unity-progress-bar-empty {
-    width: 300px;
-    height: 24px;
-    margin-top: 50px;
-    margin-left: auto;
-    margin-right: auto;
-    background: url('progress-bar-empty-dark.png') no-repeat center;
-    background-size: contain;
+  width: 300px;
+  height: 24px;
+  margin-top: 30px;
+  background: url('progress-bar-empty-dark.png') no-repeat center;
+  background-size: contain;
 }
 
 #unity-progress-bar-full {
-    height: 24px;
-    background: url('progress-bar-full-dark.png') no-repeat left center;
-    background-size: contain;
+  height: 24px;
+  background: url('progress-bar-full-dark.png') no-repeat left center;
+  background-size: contain;
+  width: 0%;
 }
 
-#unity-footer {
-    position: relative
-}
-
-.unity-mobile #unity-footer {
-    display: none
-}
-
-#unity-webgl-logo {
-    float: left;
-    width: 204px;
-    height: 38px;
-    background: url('webgl-logo.png') no-repeat center
-}
-
-#unity-build-title {
-    float: right;
-    margin-right: 10px;
-    line-height: 38px;
-    font-family: arial;
-    font-size: 18px
-}
-
-#unity-fullscreen-button {
-    cursor: pointer;
-    float: right;
-    width: 38px;
-    height: 38px;
-    background: url('fullscreen-button.png') no-repeat center
-}
-
-#unity-warning {
-    position: absolute;
-    left: 50%;
-    top: 5%;
-    transform: translate(-50%);
-    background: white;
-    padding: 10px;
-    display: none
+#synlet-logo {
+  width: 250px;
+  margin-top: 30px;
+  z-index: 10;
 }
