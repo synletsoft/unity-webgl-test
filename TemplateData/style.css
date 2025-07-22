@@ -74,4 +74,24 @@
     max-width: 300px;
     margin-top: 20px;
   }
+
+  #unity-progress-bar-empty {
+    width: 90%;
+    max-width: 320px;
+    height: 28px;
+    margin-top: 24px;
+    background-size: 100% 100%;
+    padding: 0 5px;
+    box-sizing: border-box;
+  }
+
+  #unity-progress-bar-full {
+    height: 100%;
+    width: 0%;
+    min-width: 2%;
+    background-size: 100% 100%;
+    transition: width 0.2s ease-out;
+    border-radius: 4px;
+    overflow: hidden;
+  }
 }
